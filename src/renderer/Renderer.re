@@ -117,7 +117,7 @@ let start = (onCompiling, onReady, onOutput, onSyntaxChanged) => {
   };
 
   let setSyntax = (v: Js.t(Js.js_string)) => {
-    let str = Js.to_string(v) |> String.lowercase;
+    let str = Js.to_string(v) |> String.lowercase_ascii;
     switch (str) {
     | "ml" =>
       worker##postMessage(Protocol.ToWorker.SetSyntax(Protocol.Syntax.ML))

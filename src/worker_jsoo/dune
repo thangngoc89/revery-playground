@@ -1,0 +1,46 @@
+(executable
+ (name Revery_worker)
+ (modules Revery_worker)
+ (flags :standard -w -33 -safe-string -rectypes -custom)
+ (modes byte)
+ (link_flags (:standard -linkall))
+ (preprocess (pps js_of_ocaml-ppx))
+ (libraries 
+  playground.worker)
+ )
+
+    (rule
+     (targets export.txt)
+     (deps Revery_worker.bc)
+     (action (run jsoo_listunits -o %{targets} stdlib reglm Revery Revery.Core Revery.Math Revery.UI Revery.UI_Components playground.lib)))
+
+    (rule
+     (targets Revery_worker.js)
+     (action
+      (run %{bin:js_of_ocaml}
+       --export %{dep:export.txt}
+       --toplevel
+       --pretty
+       --noruntime
+       --disable genprim
+       %{lib:js_of_ocaml-compiler:runtime.js}
+       %{lib:js_of_ocaml-compiler:toplevel.js}
+       %{lib:js_of_ocaml-compiler:dynlink.js}
+       %{lib:reglm:gl-matrix_stubs.js}
+       %{lib:reglfw:glfw_stubs.js}
+       %{lib:reglfw:gl_stubs.js}
+       %{lib:reglfw:image_stubs.js}
+       %{lib:reglfw:stb_image_stubs.js}
+       %{lib:Revery:Core/file.js}
+       %{dep:Revery_worker.bc}
+       -o %{targets}
+      )))
+
+    (alias
+     (name default)
+     (deps Revery_worker.js))
+
+(install
+    (section bin)
+    (package playground)
+    (files Revery_worker.js))

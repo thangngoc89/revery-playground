@@ -1,7 +1,7 @@
 open Js_of_ocaml;
 open Js_of_ocaml_toplevel;
 
-open Revery;
+/* open Revery; */
 open Revery.UI;
 
 open PlaygroundLib;

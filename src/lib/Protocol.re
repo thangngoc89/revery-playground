@@ -6,7 +6,7 @@
 
 open Js_of_ocaml;
 
-open Types;
+/* open Types; */
 
 module Syntax = {
   type t =

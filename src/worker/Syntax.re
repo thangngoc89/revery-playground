@@ -1,4 +1,4 @@
-open Js_of_ocaml;
+/* open Js_of_ocaml; */
 
 /*
    This file was taken from:
