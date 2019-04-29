@@ -4,40 +4,30 @@
   "description": "App toolkit built with Reason",
   "license": "MIT",
   "bugs": { "url": "https://github.com/bryphe/revery/issues" },
-  "scripts": {
-  },
   "homepage": "https://github.com/bryphe/revery#readme",
   "scripts": {
     "format": "esy dune build @fmt --auto-promote",
     "build:release": "esy b dune build --profile=release --root . -j4"
   },
-  "esy": {
-    "buildsInSource": "_build",
-    "build": ["dune build -p playground -j4" ]
-  },
+  "esy": { "buildsInSource": "_build", "build": [ "echo ''" ] },
   "dependencies": {
     "@esy-ocaml/reason": "3.4.0",
-    "@opam/js_of_ocaml": "*",
-    "@opam/js_of_ocaml-compiler": "*",
-    "@opam/js_of_ocaml-lwt": "*",
-    "@opam/js_of_ocaml-ppx": "*",
-    "@opam/js_of_ocaml-toplevel": "*",
+    "@opam/js_of_ocaml": "3.3.0",
+    "@opam/js_of_ocaml-compiler": "3.3.0",
+    "@opam/js_of_ocaml-lwt": "3.3.0",
+    "@opam/js_of_ocaml-ppx": "3.3.0",
+    "@opam/js_of_ocaml-toplevel": "3.3.0",
+    "@reason-native/console": "^0.0.3",
+    "@reason-native/rely": "^2.1.0",
     "revery": "^0.18.0"
   },
   "resolutions": {
     "rebez": "github:jchavarri/rebez#46cbc183",
     "@opam/cmdliner": "1.0.2",
     "@opam/dune": "1.7.3",
-    "@opam/js_of_ocaml": "github:revery-ui/js_of_ocaml:js_of_ocaml.opam#e09793f",
-    "@opam/js_of_ocaml-lwt": "github:revery-ui/js_of_ocaml:js_of_ocaml-lwt.opam#e09793f",
-    "@opam/js_of_ocaml-compiler": "github:revery-ui/js_of_ocaml:js_of_ocaml-compiler.opam#e09793f",
-    "@opam/js_of_ocaml-ppx": "github:revery-ui/js_of_ocaml:js_of_ocaml-ppx.opam#e09793f",
-    "@opam/js_of_ocaml-toplevel": "github:revery-ui/js_of_ocaml:js_of_ocaml-toplevel.opam#e09793f",
     "@brisk/brisk-reconciler": "github:briskml/brisk-reconciler#daa00be"
   },
-  "peerDependencies": {
-    "ocaml": "^4.7.0"
-  },
+  "peerDependencies": { "ocaml": "^4.7.0" },
   "devDependencies": {
     "ocaml": "^4.7.0",
     "@opam/merlin": "*",
